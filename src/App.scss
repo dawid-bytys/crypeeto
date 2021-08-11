@@ -1,0 +1,11 @@
+@use "./scss" as *;
+
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  @include breakpoint($screen-lg) {
+    flex-direction: row;
+  }
+}

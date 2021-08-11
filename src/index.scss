@@ -1,0 +1,37 @@
+@use "./scss" as *;
+
+/* Global styles */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+  font-size: 1rem;
+  color: $color-white;
+  font-family: Quicksand-Regular, sans-serif;
+  background-color: $color-background;
+}
+
+button,
+.button {
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin: 0;
+}

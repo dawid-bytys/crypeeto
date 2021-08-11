@@ -1,0 +1,15 @@
+/* Quicksand font declaration */
+
+@font-face {
+  font-family: Quicksand-Regular;
+  src: url("../assets/fonts/Quicksand/Quicksand.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Quicksand-Medium;
+  src: url("../assets/fonts/Quicksand/Quicksand.ttf") format("truetype");
+  font-weight: 600;
+  font-display: swap;
+}

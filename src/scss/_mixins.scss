@@ -1,0 +1,50 @@
+@use "variables" as *;
+
+/* Flex mixins */
+
+// Add space between elements
+@mixin flex-jc-sb {
+  display: flex;
+  justify-content: space-between;
+}
+
+// Add space between elements and center vertically
+@mixin flex-jc-sb-ai-c {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// Center horizontally
+@mixin flex-jc-c {
+  display: flex;
+  justify-content: center;
+}
+
+// Center vertically
+@mixin flex-ai-c {
+  display: flex;
+  align-items: center;
+}
+
+// Center both, horizontally and vertically
+@mixin flex-jc-ai-c {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Hamburger mixins */
+@mixin hamburger-line($color, $width) {
+  width: $width;
+  height: 3px;
+  background-color: $color;
+  border-radius: 20px;
+}
+
+/* Media queries mixins */
+@mixin breakpoint($size) {
+  @media only screen and (min-width: $size) {
+    @content;
+  }
+}

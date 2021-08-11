@@ -1,0 +1,14 @@
+/* Colours */
+$color-white: #fff;
+$color-black: #000;
+$color-background: #0e1015;
+$color-email-text: #424242;
+$color-green-feature: #00ba7a; // feature means the colour is used by ::before, ::after etc.
+$color-red: #ff0000;
+
+/* Breakpoints */
+$screen-sm: 576px; // large phones (landscape) and small tablets
+$screen-md: 768px; // small tablets (portrait)
+$screen-lg: 992px; // tablets and small desktops
+$screen-xl: 1200px; // large tables and desktops
+$screen-xxl: 1400px; // large desktops

@@ -1,0 +1,108 @@
+@use "../../scss" as *;
+
+.Header {
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+
+  &__hamburger-btn,
+  &__notifications-btn {
+    @include flex-jc-ai-c;
+
+    width: 60px;
+    z-index: 9000;
+  }
+
+  &__hamburger-btn {
+    z-index: 9000;
+  }
+
+  &__notifications-btn {
+    z-index: 6000;
+  }
+
+  &__hamburger-inner {
+    @include flex-jc-ai-c;
+
+    flex-direction: column;
+    width: 70%;
+    height: 70%;
+    transition: transform 300ms ease-in-out;
+  }
+
+  &__hamburger-line {
+    position: relative;
+    transition: transform 300ms ease-in-out;
+  }
+
+  &__hamburger-line:nth-child(1) {
+    @include hamburger-line($color-white, 50%);
+
+    top: -10px;
+  }
+
+  &__hamburger-line:nth-child(2) {
+    @include hamburger-line($color-white, 100%);
+  }
+
+  &__hamburger-line:nth-child(3) {
+    @include hamburger-line($color-white, 50%);
+
+    top: 10px;
+  }
+
+  &__hamburger-btn--active &__hamburger-inner {
+    transform-origin: center;
+    transform: rotate(-45deg);
+  }
+
+  &__hamburger-btn--active &__hamburger-line {
+    &:nth-child(1) {
+      transform-origin: center;
+      transform: rotate(90deg) translateX(2px);
+    }
+
+    &:nth-child(3) {
+      transform-origin: center;
+      transform: rotate(90deg) translateX(-2px);
+    }
+  }
+
+  &__heading-wrapper {
+    @include flex-jc-ai-c;
+
+    flex: 1;
+  }
+
+  &__notifications-inner {
+    @include flex-jc-ai-c;
+
+    position: relative;
+    width: 70%;
+    height: 70%;
+  }
+
+  &__notifications-bell {
+    color: $color-white;
+    font-size: 2rem;
+  }
+
+  &__notifications-badge {
+    position: absolute;
+    display: block;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    background-color: $color-red;
+    color: $color-white;
+    font-family: Quicksand-Medium, sans-serif;
+    font-size: 0.7rem;
+    transform: translate(7px, -10px);
+  }
+
+  /* Responsive */
+  @include breakpoint($screen-lg) {
+    display: none;
+  }
+}

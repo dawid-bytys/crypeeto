@@ -1,26 +1,78 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.scss";
+import { useState, useEffect } from "react";
+import {
+  Header,
+  Sidebar,
+  Loading,
+  Glow,
+  Home,
+  NotFound404,
+  ProtectedRoute,
+  Dashboard,
+  Wallet,
+  Register,
+  Login,
+} from "./utils/grabber";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectAuthorization, selectSidebar } from "./redux/store";
 
-function App() {
+const App = () => {
+  const [loading, setLoading] = useState(true);
+
+  const sidebarActive = useSelector(selectSidebar);
+  const isAuthorized = useSelector(selectAuthorization);
+
+  // Simulate data loading
+  useEffect(() => {
+    const loadingTimeout = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(loadingTimeout);
+  }, []);
+
+  // If the sidebar is active or the app is loading, remove the ability to scroll the page and conversely
+  useEffect(() => {
+    sidebarActive || loading
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "initial");
+  }, [sidebarActive, loading]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {loading && <Loading />}
+      <Glow />
+      <Header />
+      <Sidebar />
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <ProtectedRoute
+            component={Dashboard}
+            path="/dashboard"
+            isAuthorized={isAuthorized}
+          />
+          <ProtectedRoute
+            component={Register}
+            path="/register"
+            isAuthorized={isAuthorized}
+          />
+          <ProtectedRoute
+            component={Login}
+            path="/login"
+            isAuthorized={isAuthorized}
+          />
+          <ProtectedRoute
+            component={Wallet}
+            path="/wallet"
+            isAuthorized={isAuthorized}
+          />
+          <Route path="*" component={NotFound404} />
+        </Switch>
+      </Router>
     </div>
   );
-}
+};
 
 export default App;
