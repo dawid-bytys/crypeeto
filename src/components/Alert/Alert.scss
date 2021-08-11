@@ -1,0 +1,12 @@
+@use "../../scss" as *;
+
+.Alert {
+  @include flex-jc-ai-c;
+
+  height: 150px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9100;
+}

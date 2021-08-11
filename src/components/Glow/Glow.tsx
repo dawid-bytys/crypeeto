@@ -1,17 +1,20 @@
 import "./Glow.scss";
-import { useSelector, useDispatch } from "react-redux";
-import { selectSidebar } from "../../redux/store";
+import { useDispatch } from "react-redux";
 import { handleSidebar } from "../../redux/slices/sidebar";
+import { motion } from "framer-motion";
 
 const Glow = () => {
   const dispatch = useDispatch();
-  const sidebarActive = useSelector(selectSidebar);
 
   return (
-    <div
-      className={sidebarActive ? "Glow Glow--active" : "Glow"}
+    <motion.div
+      className="Glow"
       onClick={() => dispatch(handleSidebar())}
-    ></div>
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 0.5 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+    ></motion.div>
   );
 };
 
