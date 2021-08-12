@@ -55,7 +55,7 @@ const App = () => {
 
       return () => clearTimeout(alertClearenceTimeout);
     }
-  }, [alert]);
+  }, [alert, dispatch]);
 
   return (
     <Router>
