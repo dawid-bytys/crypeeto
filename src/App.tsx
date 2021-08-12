@@ -58,15 +58,15 @@ const App = () => {
   }, [alert]);
 
   return (
-    <div className="App">
-      {loading && <Loading />}
-      <AnimatePresence>{sidebarActive && <Glow />}</AnimatePresence>
-      <AnimatePresence>
-        {alert && <Alert message={alert.message} color={alert.color} />}
-      </AnimatePresence>
-      <Header />
-      <Sidebar />
-      <Router>
+    <Router>
+      <div className="App">
+        {loading && <Loading />}
+        <AnimatePresence>{sidebarActive && <Glow />}</AnimatePresence>
+        <AnimatePresence>
+          {alert && <Alert message={alert.message} color={alert.color} />}
+        </AnimatePresence>
+        <Header />
+        <Sidebar />
         <Switch>
           <Route exact path="/" component={Home} />
           <ProtectedRoute
@@ -91,8 +91,8 @@ const App = () => {
           />
           <Route path="*" component={NotFound404} />
         </Switch>
-      </Router>
-    </div>
+      </div>
+    </Router>
   );
 };
 

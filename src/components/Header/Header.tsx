@@ -2,20 +2,22 @@ import "./Header.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { selectSidebar } from "../../redux/store";
 import { handleSidebar } from "../../redux/slices/sidebar";
-import { getCurrentLocation } from "../../utils/location";
 import { IoMdNotifications } from "react-icons/io";
+import { useLocation } from "react-router-dom";
+import { formatPathname } from "../../utils/location";
 
 const Header = () => {
   const sidebarActive = useSelector(selectSidebar);
   const dispatch = useDispatch();
+  const location = useLocation();
 
   return (
     <header className="Header">
       <button
         className={
           sidebarActive
-            ? "Header__hamburger-btn Header__hamburger-btn--active button"
-            : "Header__hamburger-btn button"
+            ? "Header__hamburger-btn Header__hamburger-btn--active"
+            : "Header__hamburger-btn"
         }
         aria-label="Open the menu"
         onClick={() => dispatch(handleSidebar())}
@@ -28,13 +30,11 @@ const Header = () => {
       </button>
       <div className="Header__heading-wrapper">
         <h1 className="Header__heading-primary">
-          {getCurrentLocation(window.location.href)
-            ? getCurrentLocation(window.location.href)
-            : "Home"}
+          {formatPathname(location.pathname)}
         </h1>
       </div>
       <button
-        className="Header__notifications-btn Header__notifications-btn--active button"
+        className="Header__notifications-btn Header__notifications-btn--active"
         aria-label="Open notifications"
       >
         <div className="Header__notifications-inner">

@@ -19,8 +19,7 @@ body {
   background-color: $color-background;
 }
 
-button,
-.button {
+button {
   background-color: transparent;
   border: 0;
   padding: 0;
@@ -34,4 +33,15 @@ button,
 h1 {
   font-size: 1.5rem;
   margin: 0;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: $color-white;
 }

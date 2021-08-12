@@ -2,11 +2,13 @@
 $color-white: #fff;
 $color-black: #000;
 $color-background: #0e1015;
-$color-email-text: #424242;
-$color-green-feature: #00ba7a; // feature means the colour is used by ::before, ::after etc.
+$color-grey: #424242;
+$color-green: #00ba7a; // feature means the colour is used by ::before, ::after etc.
 $color-red: #ff0000;
+$color-purple: #4d00ff;
 
 /* Breakpoints */
+$screen-xs: 375px; // phones
 $screen-sm: 576px; // large phones (landscape) and small tablets
 $screen-md: 768px; // small tablets (portrait)
 $screen-lg: 992px; // tablets and small desktops

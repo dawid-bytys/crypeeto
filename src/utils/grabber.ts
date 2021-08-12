@@ -13,3 +13,4 @@ export { default as NotFound404 } from "../pages/NotFound404/NotFound404";
 export { default as Register } from "../pages/Register/Register";
 export { default as Login } from "../pages/Login/Login";
 export { default as Wallet } from "../pages/Wallet/Wallet";
+export { default as News } from "../pages/News/News";
