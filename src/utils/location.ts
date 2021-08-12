@@ -1,7 +1,8 @@
 /*
   This function removes a slash and capitalize the first letter, example:
-  input: /home
-  output: Home
+  - input: /dashboard
+  - output: Dashboard
+  If the pathname is just a slash, it returns "Home", it's obvious.
 */
 export const formatPathname = (url: string) => {
   if (url === "/") return "Home";

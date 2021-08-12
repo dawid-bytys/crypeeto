@@ -68,7 +68,7 @@ const App = () => {
         <Header />
         <Sidebar />
         <Switch>
-          <Route exact path="/" component={Home} />
+          {isAuthorized || <Route exact path="/" component={Home} />}
           <ProtectedRoute
             component={Dashboard}
             path="/dashboard"
