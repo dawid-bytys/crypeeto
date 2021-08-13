@@ -1,6 +1,6 @@
 import "./Glow.scss";
 import { useDispatch } from "react-redux";
-import { handleSidebar } from "../../redux/slices/sidebar";
+import { handleSidebar } from "../../redux/slices/sidebar.slice";
 import { motion } from "framer-motion";
 
 const Glow = () => {

@@ -6,17 +6,31 @@ import { BiWallet } from "react-icons/bi";
 import { FiSettings, FiHome } from "react-icons/fi";
 import { RiLogoutCircleLine } from "react-icons/ri";
 import { Link, useLocation } from "react-router-dom";
-import { closeSidebar } from "../../redux/slices/sidebar";
+import { closeSidebar } from "../../redux/slices/sidebar.slice";
 import { formatPathname } from "../../utils/location";
-import { setAuthorization } from "../../redux/slices/authorization";
 import me from "../../assets/img/me.jpeg";
+import React from "react";
 
-const Sidebar = () => {
+interface SidebarProps {
+  username: string | null;
+  email: string | null;
+  picture: string | null;
+}
+
+const Sidebar = ({ username, email, picture }: SidebarProps) => {
   const sidebarActive = useSelector(selectSidebar);
   const isAuthorized = useSelector(selectAuthorization);
   const location = useLocation();
 
   const dispatch = useDispatch();
+
+  // Logout a user
+  const handleLogout = (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault();
+
+    localStorage.removeItem("access_token");
+    window.location.reload();
+  };
 
   return (
     <div className={sidebarActive ? "Sidebar Sidebar--active" : "Sidebar"}>
@@ -29,10 +43,10 @@ const Sidebar = () => {
             </div>
             <div className="Sidebar__user-data">
               <div className="Sidebar__name">
-                <span>John Walker</span>
+                <span>{username}</span>
               </div>
               <div className="Sidebar__email">
-                <span>john211@protonmail.com</span>
+                <span>{email}</span>
               </div>
             </div>
           </div>
@@ -124,7 +138,7 @@ const Sidebar = () => {
                 <a
                   href="/"
                   className="Sidebar__nav-item-link"
-                  onClick={() => dispatch(setAuthorization(false))}
+                  onClick={handleLogout}
                 >
                   <div className="Sidebar__nav-item-wrapper">
                     <div className="Sidebar__nav-item-logo-wrapper">
@@ -163,12 +177,6 @@ const Sidebar = () => {
             </ul>
           )}
         </nav>
-        <button
-          onClick={() => dispatch(setAuthorization(true))}
-          style={{ backgroundColor: "white" }}
-        >
-          Fake login
-        </button>
       </div>
     </div>
   );

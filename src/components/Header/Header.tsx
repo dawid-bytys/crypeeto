@@ -1,7 +1,7 @@
 import "./Header.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { selectSidebar } from "../../redux/store";
-import { handleSidebar } from "../../redux/slices/sidebar";
+import { handleSidebar } from "../../redux/slices/sidebar.slice";
 import { IoMdNotifications } from "react-icons/io";
 import { useLocation } from "react-router-dom";
 import { formatPathname } from "../../utils/location";
