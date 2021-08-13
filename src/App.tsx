@@ -26,11 +26,11 @@ import { AnimatePresence } from "framer-motion";
 import { clearAlert } from "./redux/slices/alert.slice";
 import { getUserData } from "./redux/services/auth.service";
 
-const App = () => {
+export const App = () => {
   const [loading, setLoading] = useState(true);
 
   const sidebarActive = useSelector(selectSidebar);
-  const isAuthorized = useSelector(selectAuthorization);
+  const authorization = useSelector(selectAuthorization);
   const user = useSelector(selectUser);
   const alert = useSelector(selectAlert);
 
@@ -78,6 +78,14 @@ const App = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user.status, history]);
 
+  // If a login status is equal to "success", return user's data
+  useEffect(() => {
+    const accessToken = localStorage.getItem("access_token");
+    if (authorization.login === "success" && accessToken) {
+      dispatch(getUserData(accessToken));
+    }
+  }, [authorization.login, dispatch]);
+
   return (
     <div className="App">
       {loading && <Loading />}
@@ -92,31 +100,31 @@ const App = () => {
         picture={user.data.picture}
       />
       <Switch>
-        {!isAuthorized && <Route exact path="/" component={Home} />}
+        {!authorization.is_authorized && (
+          <Route exact path="/" component={Home} />
+        )}
         <ProtectedRoute
           component={Dashboard}
           path="/dashboard"
-          isAuthorized={isAuthorized}
+          isAuthorized={authorization.is_authorized}
         />
         <ProtectedRoute
           component={Register}
           path="/register"
-          isAuthorized={isAuthorized}
+          isAuthorized={authorization.is_authorized}
         />
         <ProtectedRoute
           component={Login}
           path="/login"
-          isAuthorized={isAuthorized}
+          isAuthorized={authorization.is_authorized}
         />
         <ProtectedRoute
           component={Wallet}
           path="/wallet"
-          isAuthorized={isAuthorized}
+          isAuthorized={authorization.is_authorized}
         />
         <Route path="*" component={NotFound404} />
       </Switch>
     </div>
   );
 };
-
-export default App;

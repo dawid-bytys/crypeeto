@@ -1,7 +1,5 @@
 import "./News.scss";
 
-const News = () => {
+export const News = () => {
   return <div className="News">News</div>;
 };
-
-export default News;

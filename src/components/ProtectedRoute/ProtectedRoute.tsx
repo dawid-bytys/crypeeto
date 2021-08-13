@@ -4,7 +4,7 @@ interface ProtectedRouteProps extends RouteProps {
   isAuthorized: boolean;
 }
 
-const ProtectedRoute = ({
+export const ProtectedRoute = ({
   isAuthorized,
   ...routeProps
 }: ProtectedRouteProps) => {
@@ -14,5 +14,3 @@ const ProtectedRoute = ({
     return <Redirect to={{ pathname: "/" }} />;
   }
 };
-
-export default ProtectedRoute;

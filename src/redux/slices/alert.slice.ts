@@ -7,7 +7,7 @@ interface InitialState {
 
 const initialState = null as InitialState | null;
 
-const alertSlice = createSlice({
+export const alertSlice = createSlice({
   name: "alert",
   initialState,
   reducers: {
@@ -17,5 +17,3 @@ const alertSlice = createSlice({
 });
 
 export const { setAlert, clearAlert } = alertSlice.actions;
-
-export default alertSlice;

@@ -6,7 +6,7 @@ interface AlertProps {
   color: string;
 }
 
-const Alert = ({ message, color }: AlertProps) => {
+export const Alert = ({ message, color }: AlertProps) => {
   return (
     <motion.div
       className="Alert"
@@ -20,5 +20,3 @@ const Alert = ({ message, color }: AlertProps) => {
     </motion.div>
   );
 };
-
-export default Alert;

@@ -37,7 +37,7 @@ const initialState: InitialState = {
   },
 };
 
-const userSlice = createSlice({
+export const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {},
@@ -54,5 +54,3 @@ const userSlice = createSlice({
     },
   },
 });
-
-export default userSlice;

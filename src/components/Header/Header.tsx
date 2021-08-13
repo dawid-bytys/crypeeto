@@ -6,7 +6,7 @@ import { IoMdNotifications } from "react-icons/io";
 import { useLocation } from "react-router-dom";
 import { formatPathname } from "../../utils/location";
 
-const Header = () => {
+export const Header = () => {
   const sidebarActive = useSelector(selectSidebar);
   const dispatch = useDispatch();
   const location = useLocation();
@@ -45,5 +45,3 @@ const Header = () => {
     </header>
   );
 };
-
-export default Header;

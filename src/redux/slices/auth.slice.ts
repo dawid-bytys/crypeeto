@@ -13,7 +13,7 @@ const initialState: InitialState = {
   is_authorized: false,
 };
 
-const authorizationSlice = createSlice({
+export const authorizationSlice = createSlice({
   name: "authorization",
   initialState,
   reducers: {
@@ -35,7 +35,7 @@ const authorizationSlice = createSlice({
       state.login = "pending";
     },
     [login.fulfilled.type]: state => {
-      state.registration = "success";
+      state.login = "success";
       state.is_authorized = true;
     },
     [login.rejected.type]: state => {
@@ -45,5 +45,3 @@ const authorizationSlice = createSlice({
 });
 
 export const { setAuthorization } = authorizationSlice.actions;
-
-export default authorizationSlice;

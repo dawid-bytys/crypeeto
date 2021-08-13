@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { handleSidebar } from "../../redux/slices/sidebar.slice";
 import { motion } from "framer-motion";
 
-const Glow = () => {
+export const Glow = () => {
   const dispatch = useDispatch();
 
   return (
@@ -17,5 +17,3 @@ const Glow = () => {
     ></motion.div>
   );
 };
-
-export default Glow;

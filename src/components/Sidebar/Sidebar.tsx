@@ -17,9 +17,9 @@ interface SidebarProps {
   picture: string | null;
 }
 
-const Sidebar = ({ username, email, picture }: SidebarProps) => {
+export const Sidebar = ({ username, email, picture }: SidebarProps) => {
   const sidebarActive = useSelector(selectSidebar);
-  const isAuthorized = useSelector(selectAuthorization);
+  const { is_authorized } = useSelector(selectAuthorization);
   const location = useLocation();
 
   const dispatch = useDispatch();
@@ -36,7 +36,7 @@ const Sidebar = ({ username, email, picture }: SidebarProps) => {
     <div className={sidebarActive ? "Sidebar Sidebar--active" : "Sidebar"}>
       <div className="Sidebar__logo-wrapper"></div>
       <div className="Sidebar__navigation-wrapper">
-        {isAuthorized && (
+        {is_authorized && (
           <div className="Sidebar__profile">
             <div className="Sidebar__image-wrapper">
               <img src={me} alt="Profile" className="Sidebar__image" />
@@ -52,7 +52,7 @@ const Sidebar = ({ username, email, picture }: SidebarProps) => {
           </div>
         )}
         <nav className="Sidebar__navigation">
-          {isAuthorized ? (
+          {is_authorized ? (
             <ul className="Sidebar__nav-list">
               <li
                 className={
@@ -181,5 +181,3 @@ const Sidebar = ({ username, email, picture }: SidebarProps) => {
     </div>
   );
 };
-
-export default Sidebar;
