@@ -8,6 +8,7 @@ import { formatPathname } from "../../utils/location";
 
 export const Header = () => {
   const sidebarActive = useSelector(selectSidebar);
+
   const dispatch = useDispatch();
   const location = useLocation();
 

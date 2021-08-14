@@ -1,11 +1,40 @@
-/* Colours */
+/* Static colours */
 $color-white: #fff;
 $color-black: #000;
-$color-background: #0e1015;
-$color-grey: #b2b2b2;
-$color-green: #00ba7a; // feature means the colour is used by ::before, ::after etc.
-$color-red: #ff0000;
 $color-purple: #4d00ff;
+$color-red: #ff0000;
+$color-green: #00ba7a; // feature means the colour is used by ::before, ::after etc.
+$color-grey: #b2b2b2;
+
+/* Theme based colours */
+// Dark
+$color-background-dark: #0e1015;
+$color-sidebar-dark: lighten($color-background-dark, 5%);
+$color-profile-dark: lighten($color-background-dark, 12%);
+$color-list-item-hover-dark: lighten($color-sidebar-dark, 5%);
+
+// Light
+$color-background-light: $color-white;
+$color-sidebar-light: darken($color-background-light, 5%);
+$color-profile-light: darken($color-background-light, 12%);
+$color-list-item-hover-light: darken($color-sidebar-light, 5%);
+
+/* CSS variables */
+html[data-theme="light"] {
+  --color-background: #{$color-background-light};
+  --color-text: #{$color-black};
+  --color-sidebar: #{$color-sidebar-light};
+  --color-profile: #{$color-sidebar-light};
+  --color-list-item-hover: #{$color-list-item-hover-light};
+}
+
+html[data-theme="dark"] {
+  --color-background: #{$color-background-dark};
+  --color-text: #{$color-white};
+  --color-sidebar: #{$color-sidebar-dark};
+  --color-profile: #{$color-sidebar-dark};
+  --color-list-item-hover: #{$color-list-item-hover-dark};
+}
 
 /* Breakpoints */
 $screen-xs: 375px; // phones

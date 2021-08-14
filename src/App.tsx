@@ -17,6 +17,7 @@ import {
 import { Switch, Route, useHistory, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {
+  selectTheme,
   selectAlert,
   selectAuthorization,
   selectSidebar,
@@ -33,6 +34,7 @@ export const App = () => {
   const authorization = useSelector(selectAuthorization);
   const user = useSelector(selectUser);
   const alert = useSelector(selectAlert);
+  const theme = useSelector(selectTheme);
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -44,6 +46,15 @@ export const App = () => {
       ? (document.body.style.overflow = "hidden")
       : (document.body.style.overflow = "initial");
   }, [sidebarActive, loading]);
+
+  // Change the theme
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.setAttribute("data-theme", "dark");
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  }, [theme]);
 
   // Clear the alert after 5 seconds
   useEffect(() => {

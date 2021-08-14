@@ -1,9 +1,9 @@
 @use "../../scss" as *;
 
 .Header {
-  height: 100px;
   display: flex;
   flex-direction: row;
+  height: 100px;
   padding: 20px;
 
   &__hamburger-btn,
@@ -25,9 +25,9 @@
     @include flex-jc-ai-c;
 
     flex-direction: column;
-    width: 70%;
     height: 70%;
     transition: transform 300ms ease-in-out;
+    width: 70%;
   }
 
   &__hamburger-line {
@@ -52,19 +52,19 @@
   }
 
   &__hamburger-btn--active &__hamburger-inner {
-    transform-origin: center;
     transform: rotate(-45deg);
+    transform-origin: center;
   }
 
   &__hamburger-btn--active &__hamburger-line {
     &:nth-child(1) {
-      transform-origin: center;
       transform: rotate(90deg) translateX(2px);
+      transform-origin: center;
     }
 
     &:nth-child(3) {
-      transform-origin: center;
       transform: rotate(90deg) translateX(-2px);
+      transform-origin: center;
     }
   }
 
@@ -77,9 +77,9 @@
   &__notifications-inner {
     @include flex-jc-ai-c;
 
+    height: 70%;
     position: relative;
     width: 70%;
-    height: 70%;
 
     &:active {
       top: 5px;
