@@ -15,7 +15,7 @@ body {
   scroll-behavior: smooth;
   background-color: var(--color-background);
   color: var(--color-text);
-  font-family: Quicksand-Regular, sans-serif;
+  font-family: Quicksand-Medium, sans-serif;
 }
 
 button {
@@ -37,5 +37,5 @@ ul {
 
 a {
   text-decoration: none;
-  color: $color-white;
+  color: var(--color-text);
 }

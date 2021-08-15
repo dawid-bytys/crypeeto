@@ -4,11 +4,10 @@
   @include flex-ai-c;
   flex-direction: column;
   flex: 1;
-  padding: 30px 20px 50px 20px;
-  font-family: Quicksand-Medium, sans-serif;
+  padding: 50px 20px;
 
   &__image-wrapper {
-    padding: 40px;
+    padding: 0 40px 40px 40px;
   }
 
   &__image {
@@ -16,9 +15,10 @@
     height: 100%;
   }
 
-  &__heading-secondary {
+  &__heading-primary {
     margin-top: 0;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
+    font-family: Quicksand-Bold, sans-serif;
   }
 
   &__description {
@@ -35,9 +35,32 @@
     background-color: $color-purple;
     padding: 10px 25px;
     border-radius: 20px;
+    font-family: Quicksand-Bold, sans-serif;
   }
 
   &__separator {
     margin: 0 10px;
+  }
+
+  &__login-btn {
+    font-family: Quicksand-Bold, sans-serif;
+  }
+
+  /* Responsive */
+  @include breakpoint($screen-sm) {
+    padding-bottom: 100px;
+
+    &__image-wrapper {
+      padding: 0 100px 100px 100px;
+    }
+  }
+
+  @include breakpoint($screen-md) {
+    padding-top: 80px;
+    padding-bottom: 130px;
+
+    &__image-wrapper {
+      padding: 0 160px 100px 160px;
+    }
   }
 }

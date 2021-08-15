@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 
 export const Home = () => {
   return (
-    <div className="Home">
+    <main className="Home">
       <div className="Home__image-wrapper">
         <Investor className="Home__image" />
       </div>
-      <h2 className="Home__heading-secondary">Become an investor</h2>
+      <h1 className="Home__heading-primary">Become an investor</h1>
       <p className="Home__description">
-        Do you want to become a legend in the investing history? Do not hesitate
-        and...
+        Would you like to quickly and easily increase your capital? Do not
+        hesitate and...
       </p>
       <div className="Home__buttons-wrapper">
         <Link to="/register" className="Home__join-btn">
@@ -22,6 +22,6 @@ export const Home = () => {
           login
         </Link>
       </div>
-    </div>
+    </main>
   );
 };

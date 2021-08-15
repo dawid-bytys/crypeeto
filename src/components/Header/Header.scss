@@ -3,14 +3,15 @@
 .Header {
   display: flex;
   flex-direction: row;
-  height: 100px;
+  flex-basis: 100px;
+  flex-shrink: 0;
   padding: 20px;
 
   &__hamburger-btn,
   &__notifications-btn {
     @include flex-jc-ai-c;
 
-    width: 60px;
+    flex-basis: 60px;
   }
 
   &__hamburger-btn {
@@ -19,11 +20,6 @@
 
   &__notifications-btn {
     z-index: 6000;
-  }
-
-  &__heading-primary {
-    font-size: 1.5rem;
-    margin: 0;
   }
 
   &__hamburger-inner {
@@ -73,10 +69,14 @@
     }
   }
 
-  &__heading-wrapper {
+  &__current-page-wrapper {
     @include flex-jc-ai-c;
 
     flex: 1;
+  }
+
+  &__current-page {
+    font-size: 1.5rem;
   }
 
   &__notifications-inner {
@@ -104,7 +104,6 @@
     height: 15px;
     background-color: $color-red;
     color: $color-white;
-    font-family: Quicksand-Medium, sans-serif;
     font-size: 0.7rem;
     transform: translate(7px, -10px);
   }

@@ -29,10 +29,10 @@ export const Header = () => {
           <span className="Header__hamburger-line"></span>
         </div>
       </button>
-      <div className="Header__heading-wrapper">
-        <h1 className="Header__heading-primary">
+      <div className="Header__current-page-wrapper">
+        <span className="Header__current-page">
           {formatPathname(location.pathname)}
-        </h1>
+        </span>
       </div>
       <button
         className="Header__notifications-btn Header__notifications-btn--active"
