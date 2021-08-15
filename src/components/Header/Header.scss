@@ -21,6 +21,11 @@
     z-index: 6000;
   }
 
+  &__heading-primary {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
   &__hamburger-inner {
     @include flex-jc-ai-c;
 

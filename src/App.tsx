@@ -114,19 +114,15 @@ export const App = () => {
         {!authorization.is_authorized && (
           <Route exact path="/" component={Home} />
         )}
+        {!authorization.is_authorized && (
+          <Route component={Register} path="/register" />
+        )}
+        {!authorization.is_authorized && (
+          <Route component={Login} path="/login" />
+        )}
         <ProtectedRoute
           component={Dashboard}
           path="/dashboard"
-          isAuthorized={authorization.is_authorized}
-        />
-        <ProtectedRoute
-          component={Register}
-          path="/register"
-          isAuthorized={authorization.is_authorized}
-        />
-        <ProtectedRoute
-          component={Login}
-          path="/login"
           isAuthorized={authorization.is_authorized}
         />
         <ProtectedRoute
