@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "author": "salvia-dev",
   "license": "MIT",
-  "private": true,
   "prettier": {
     "arrowParens": "avoid"
   },

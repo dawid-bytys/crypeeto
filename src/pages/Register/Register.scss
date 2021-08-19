@@ -1,0 +1,109 @@
+@use "../../scss" as *;
+
+.Register {
+  flex: 1;
+  position: relative;
+  padding: 0 20px 730px 20px;
+
+  &__back-circle {
+    @include position-circle(20px, 20px);
+
+    position: absolute;
+  }
+
+  &__front-circle {
+    @include position-circle(15px, 15px);
+
+    position: absolute;
+  }
+
+  &__back-wave,
+  &__front-wave {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: absolute;
+    top: 13vh;
+    left: 20vw;
+    width: 180px;
+    height: 445px;
+  }
+
+  &__input-wrapper {
+    flex-basis: 50px;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: $color-grey;
+    }
+  }
+
+  &__input-wrapper--disabled {
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  &__submit-wrapper--disabled {
+    opacity: 0.7;
+    pointer-events: none;
+  }
+
+  &__submit-wrapper {
+    flex-basis: auto;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 20px 0 5px 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 18px;
+    color: $color-white;
+    font-family: Quicksand-Bold, sans-serif;
+    z-index: 5;
+  }
+
+  &__label {
+    position: absolute;
+    top: 20px;
+    color: $color-grey;
+    transition: transform 300ms ease, font-size 300ms ease;
+    font-size: 15px;
+    z-index: 4;
+  }
+
+  // If an input is focused or if there is any value in it, keep the styles
+  &__input:focus + &__label,
+  &__input:valid + &__label {
+    transform: translateY(-20px);
+    font-size: 13px;
+  }
+
+  &__submit-wrapper {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__submit {
+    background-color: $color-purple;
+    padding: 10px 25px;
+    border-radius: 20px;
+    font-family: Quicksand-Bold, sans-serif;
+    color: $color-white;
+    font-size: 0.9rem;
+  }
+}

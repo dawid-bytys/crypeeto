@@ -48,3 +48,10 @@
     @content;
   }
 }
+
+/* Position circle */
+@mixin position-circle($top, $left) {
+  position: absolute;
+  top: $top;
+  left: $left;
+}

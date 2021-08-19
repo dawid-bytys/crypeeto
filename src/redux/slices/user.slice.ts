@@ -3,6 +3,8 @@ import { getUserData } from "../services/auth.service";
 
 interface UserData {
   status: string;
+  first_name: string;
+  last_name: string;
   username: string;
   email: string;
   picture: string;
@@ -15,6 +17,8 @@ interface UserData {
 interface InitialState {
   status: string | null;
   data: {
+    first_name: string | null;
+    last_name: string | null;
     username: string | null;
     email: string | null;
     picture: string | null;
@@ -30,6 +34,8 @@ interface InitialState {
 const initialState: InitialState = {
   status: null,
   data: {
+    first_name: null,
+    last_name: null,
     username: null,
     email: null,
     picture: null,

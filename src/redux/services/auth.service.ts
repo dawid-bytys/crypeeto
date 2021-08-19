@@ -4,6 +4,8 @@ import axios from "axios";
 import { setAuthorization } from "../slices/auth.slice";
 
 interface UserData {
+  first_name: string;
+  last_name: string;
   username: string;
   email: string;
   picture: string;
@@ -14,8 +16,11 @@ interface UserData {
 }
 
 interface Credentials {
+  first_name: string;
+  last_name: string;
   username: string;
   password: string;
+  confirm_password: string;
   email: string;
 }
 
@@ -23,13 +28,23 @@ interface Credentials {
 export const register = createAsyncThunk(
   "auth/register",
   async (
-    { username, password, email }: Credentials,
+    {
+      first_name,
+      last_name,
+      username,
+      password,
+      confirm_password,
+      email,
+    }: Credentials,
     { dispatch, rejectWithValue }
   ) => {
     try {
       const response = await axios.post<{ message: string }>("/auth/register", {
+        first_name: first_name,
+        last_name: last_name,
         username: username,
         password: password,
+        confirm_password: confirm_password,
         email: email,
       });
 
